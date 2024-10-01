@@ -2,6 +2,14 @@
 
 
 ## Todo
+- [ ] Write READMEs
+	- [ ] Top level
+	- [ ] dashboard
+	- [ ] fisher
+	- [ ] flexible-mq
+	- [ ] market
+	- [ ] shop
+	- [ ] trading
 - [ ] Docker compose
 	- [x] create
 	- [ ] create docker images
