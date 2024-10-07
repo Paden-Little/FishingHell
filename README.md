@@ -1,3 +1,7 @@
+# NOTES
+- If you are adding a library to a go project be sure to re-add go.sum to the 6th line (COPY command) of the docker compose and run "go mod tidy"
+
+
 **Fishing Hell – Capstone Project Proposal** 
 
 **Note to reader:**

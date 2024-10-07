@@ -61,3 +61,7 @@ The user now has a choice to store the fish in the **ice chest**, **the freezer*
   - Value lost per day is 7%  
 - **Sell it:**  
   - Selling it will show the current market value per Kg and the total sell price based on the fishes weight
+
+
+## Presentation Ideas
+"The application can withstand X users so, if each and everyone of you were you recommend 3 people and then those 3 people reccomend 3 more, I would be able to handle that computation. But dont go anyfurther or we start breaking down"

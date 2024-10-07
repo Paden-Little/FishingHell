@@ -1,0 +1,24 @@
+services:
+  flexible-mq:
+    build: ./flexible-mq/.
+  fisher:
+    build: ./fisher/.
+  account:
+    build: ./account/.
+  market:
+    build: ./market/.
+  metrics:
+    build: ./metrics/.
+  shop:
+    build: ./shop/.
+  trading:
+    build: ./trading/.
+  user-testing:
+    build: ./user-testing/.
+
+  dashboard:
+    build: ./dashboard/.
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080:8080"

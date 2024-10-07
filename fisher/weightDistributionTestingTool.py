@@ -6,7 +6,7 @@ def custom_pdf(x, peak, spread):
     return math.exp(-((x - peak) ** 2) / (2 * spread ** 2))
 
 
-def plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, num_samples=10000):
+def plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, num_samples=1000):
     weights = [generate_fish_weight_custom(low_weight, high_weight, peak, stddev) for _ in range(num_samples)]
     plt.hist(weights, bins=50, density=True, alpha=0.6, color='skyblue', edgecolor='black')
     plt.title(f'Fish Weight Distribution (stddev_factor={stddev}), (peak={peak})')
@@ -39,10 +39,13 @@ def generate_fish_weight_custom(low_weight, high_weight, peak=None, stddev=None,
         return generate_fish_weight_custom(low_weight, high_weight, peak, spread, num_samples)
 
 low_weight = 300
-high_weight = 625
-peak = 320
-stddev = 100
+high_weight = 500
+peak = 450
+stddev = 2
 
 
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev)
-
+plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 10)
+plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 100)
+plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 1000)
+plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 10000)
+plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 100000)
