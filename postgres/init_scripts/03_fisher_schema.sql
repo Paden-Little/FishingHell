@@ -17,16 +17,17 @@ CREATE TABLE fishing_hell.fisher.pool (
 CREATE TABLE fishing_hell.fisher.catch_value (
     fishID int REFERENCES fisher.fish(id) NOT NULL,
     poolID varchar(50) REFERENCES fisher.pool(name) NOT NULL,
-    value float NOT NULL CONSTRAINT value_must_be_zero_or_positive CHECK (value >= 0)
+    value float NOT NULL CONSTRAINT value_must_be_zero_or_positive CHECK (value >= 0),
+    PRIMARY KEY (fishID, poolID)
 );
 
 CREATE TABLE fishing_hell.fisher.caught (
-    -- ADD refernce to caught by, owner, baitUsed
-    caughtID uuid primary key,
+    id uuid primary key,
     fishID int REFERENCES fisher.fish(id) NOT NULL,
     weight float NOT NULL,
-    baitUsed int NOT NULL,
-    caughtBy uuid NOT NULL,
-    owner uuid NOT NULL,
+    whenCaught timestamp NOT NULL,
+    baitUsed int NOT NULL REFERENCES fishing_hell.shop.bait(id),
+    caughtBy uuid NOT NULL REFERENCES fishing_hell.account.user(id),
+    owner uuid NOT NULL REFERENCES fishing_hell.account.user(id),
     frozen boolean default false
 );
