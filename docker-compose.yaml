@@ -15,10 +15,26 @@ services:
     build: ./trading/.
   user-testing:
     build: ./user-testing/.
-
   dashboard:
     build: ./dashboard/.
     ports:
       - "8080:8080"
     expose:
       - "8080:8080"
+  postgres:
+    image: postgres
+    #restart: always
+    environment:
+      POSTGRES_DB: fishing_hell
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./postgres/init_scripts/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432:5432"
+
+volumes:
+  db_data:
