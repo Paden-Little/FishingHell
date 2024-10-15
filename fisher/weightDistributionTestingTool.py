@@ -2,14 +2,11 @@ import random
 import math
 import matplotlib.pyplot as plt
 
-def custom_pdf(x, peak, spread):
-    return math.exp(-((x - peak) ** 2) / (2 * spread ** 2))
-
 
 def plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, num_samples=1000):
     weights = [generate_fish_weight_custom(low_weight, high_weight, peak, stddev) for _ in range(num_samples)]
     plt.hist(weights, bins=50, density=True, alpha=0.6, color='skyblue', edgecolor='black')
-    plt.title(f'Fish Weight Distribution (stddev_factor={stddev}), (peak={peak})')
+    plt.title(f'Fish Weight Distribution (spread={stddev}), (peak={peak})')
     plt.xlabel('Weight (ounces)')
     plt.ylabel('Probability Density')
     plt.axvline(x=(low_weight + high_weight) / 2, color='red', linestyle='dashed', linewidth=1, label='Mean')
@@ -17,13 +14,16 @@ def plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, num_sam
     plt.show()
 
 
-def generate_fish_weight_custom(low_weight, high_weight, peak=None, stddev=None, num_samples=100):
+def custom_pdf(x, peak, spread):
+    return math.exp(-((x - peak) ** 2) / (2 * spread ** 2))
+
+def generate_fish_weight_custom(low_weight, high_weight, peak=None, spread=None, num_samples=100):
     if peak is None:
         peak = (low_weight + high_weight) / 2
-    if stddev is None:
+    if spread is None:
         spread = (high_weight - low_weight) / 6
     else:
-        spread = (high_weight - low_weight) / stddev
+        stddev = (high_weight - low_weight) / spread
 
     weights = []
     for _ in range(num_samples):
@@ -40,12 +40,8 @@ def generate_fish_weight_custom(low_weight, high_weight, peak=None, stddev=None,
 
 low_weight = 300
 high_weight = 500
-peak = 450
-stddev = 2
+peak = 400
+spread = -6
 
 
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 10)
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 100)
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 1000)
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 10000)
-plot_fish_weight_distribution(low_weight, high_weight, peak, stddev, 100000)
+plot_fish_weight_distribution(low_weight, high_weight, peak, spread, 100000)

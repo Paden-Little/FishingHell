@@ -13,13 +13,18 @@ The Fisher service is the service that facilitates catching of fish. Users begin
   - Stddev – float nullable  
 - Pool:  
   - Name – unique string  
-- Bait:  
-  - ID – unique string  
-  - Name – string  
-  - Cost – float  
-  - Description – string  
+
+[//]: # (- Bait:  )
+
+[//]: # (  - ID – unique string  )
+
+[//]: # (  - Name – string  )
+
+[//]: # (  - Cost – float  )
+
+[//]: # (  - Description – string  )
 - Attraction:  
-  - ID – composite unique key between fishID and baitID  
+  - ID – composite unique key between fishID and shop.baitID  
   - Value – float  
 - CatchValue:  
   - ID – composite unique key between poolID and fishID   
