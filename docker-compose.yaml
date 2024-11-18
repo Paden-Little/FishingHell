@@ -13,21 +13,37 @@ services:
       - "5432:5432"
     expose:
       - "5432:5432"
-  redis:
-    image: redis:6.2-alpine
-    restart: always
-    volumes:
-      - redis_data:/data
+    networks:
+      default:
+#  redis:
+#    image: redis:6.2-alpine
+#    restart: always
+#    volumes:
+#      - redis_data:/data
   flexible-mq:
     build: ./flexible-mq/.
+    ports:
+      - "4321:8080"
+    expose:
+      - "4321:8080"
+    networks:
+      default:
   fisher:
     build: ./fisher/.
     depends_on:
       - postgres
     env_file:
       - "./fisher/.env"
+    networks:
+      default:
   account:
     build: ./account/.
+    depends_on:
+      - postgres
+    env_file:
+      - "./account/.env"
+    networks:
+      default:
   market:
     build: ./market/.
   metrics:
@@ -44,9 +60,14 @@ services:
       - "8080:8080"
     expose:
       - "8080:8080"
-
-
-
+  frontend:
+    build: ./frontend/.
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000:3000"
 volumes:
   db_data:
   redis_data:
+networks:
+  default:

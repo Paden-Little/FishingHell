@@ -5,76 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <script src="https://unpkg.com/htmx.org"></script>
+    <style>
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <h1>Admin Dashboard</h1>
 <br>
 
-<button hx-get="/getFlexible"
-        hx-target="#flexibleResponse"
-        hx-swap="innerHTML">
-    Get Flexible MQ
-</button>
-<div id="flexibleResponse"></div>
-<br>
+<h3>Message Queue</h3>
+<div class="button-grid">
+    <button hx-get="/getFlexible"
+            hx-target="#flexibleResponse"
+            hx-swap="innerHTML">
+        Get Flexible MQ
+    </button>
 
-<button hx-get="/getFisher"
-        hx-target="#fisherResponse"
-        hx-swap="innerHTML">
-    Get Fisher
-</button>
-<div id="fisherResponse"></div>
-<br>
+    <button hx-get="/getFisher"
+            hx-target="#fisherResponse"
+            hx-swap="innerHTML">
+        Get Fisher
+    </button>
 
-<button hx-get="/getAccount"
-        hx-target="#accountResponse"
-        hx-swap="innerHTML">
-    Get Account
-</button>
-<div id="accountResponse"></div>
-<br>
+    <button hx-get="/getAccount"
+            hx-target="#accountResponse"
+            hx-swap="innerHTML">
+        Get Account
+    </button>
 
-<button hx-get="/getMarket"
-        hx-target="#marketResponse"
-        hx-swap="innerHTML">
-    Get Market
-</button>
-<div id="marketResponse"></div>
-<br>
+    <button hx-get="/getMarket"
+            hx-target="#marketResponse"
+            hx-swap="innerHTML">
+        Get Market
+    </button>
 
-<button hx-get="/getMetrics"
-        hx-target="#metricResponse"
-        hx-swap="innerHTML">
-    Get Metrics
-</button>
-<div id="metricResponse"></div>
-<br>
+    <button hx-get="/getMetrics"
+            hx-target="#metricResponse"
+            hx-swap="innerHTML">
+        Get Metrics
+    </button>
 
-<button hx-get="/getShop"
-        hx-target="#shopResponse"
-        hx-swap="innerHTML">
-    Get Shop
-</button>
-<div id="shopResponse"></div>
-<br>
+    <button hx-get="/getShop"
+            hx-target="#shopResponse"
+            hx-swap="innerHTML">
+        Get Shop
+    </button>
 
-<button hx-get="/getTrading"
-        hx-target="#tradingResponse"
-        hx-swap="innerHTML">
-    Get Trading
-</button>
-<div id="tradingResponse"></div>
-<br>
+    <button hx-get="/getTrading"
+            hx-target="#tradingResponse"
+            hx-swap="innerHTML">
+        Get Trading
+    </button>
+
+    <button hx-get="/getUserTesting"
+            hx-target="#userTestingResponse"
+            hx-swap="innerHTML">
+        Get User Testing
+    </button>
+    <div id="flexibleResponse"></div>
+    <div id="fisherResponse"></div>
+    <div id="accountResponse"></div>
+    <div id="marketResponse"></div>
+    <div id="metricResponse"></div>
+    <div id="shopResponse"></div>
+    <div id="tradingResponse"></div>
+    <div id="userTestingResponse"></div>
+</div>
+
+<h3>Fisher</h3>
+<div class="button-grid">
+    <!-- Run a HTMX-GET to fetch the rods the user owns, display those, and then fetch all pools from DB instead of hard code -->
+    <form hx-post="/fish" hx-target="#response" hx-swap="innerHTML">
+        <label for="pool">Select Pool:</label>
+        <select id="pool" name="pool">
+            <option value="Clear Lake">Clear Lake</option>
+            <option value="Green River">Green River</option>
+        </select>
+        <br><br>
+
+        <label for="rod">Select Rod:</label>
+        <select id="rod" name="rod">
+            <option value="1">Beginner Rod</option>
+            <option value="2">Advanced Rod</option>
+            <option value="3">Pro Rod</option>
+            <option value="4">Master Rod</option>
+            <option value="5">Legendary Rod</option>
+        </select>
+        <br><br>
 
 
-<button hx-get="/getUserTesting"
-        hx-target="#userTestingResponse"
-        hx-swap="innerHTML">
-    Get User testing
-</button>
-<div id="userTestingResponse"></div>
-<br>
+        <label for="bait">Select Bait:</label>
+        <select id="bait" name="bait">
+            <option value="101">Worm</option>
+            <option value="102">Minnow</option>
+        </select>
+        <br><br>
+
+
+        <button type="submit">Submit Selection</button>
+    </form>
+
+    <div id="response"></div>
+</div>
+
+<h3>Account stuff</h3>
+<div class="button-grid">
+    <h4>Login</h4>
+    <form hx-post="/login" hx-target="#login-response" hx-swap="innerHTML">
+        <label for="login-username">Username: </label>
+        <input type="text" id="login-username" name="username"/>
+        <label for="login-password">Password: </label>
+        <input type="text" id="login-password" name="password"/>
+        <button type="submit">Log in</button>
+    </form>
+    <div id="login-response"></div>
+
+    <h4>Create Account</h4>
+    <form hx-post="/createAccount" hx-target="#create-response">
+        <label for="create-username">Username: </label>
+        <input type="text" id="create-username" name="username"/>
+        <label for="create-password">Password: </label>
+        <input type="text" id="create-password" name="password"/>
+        <button type="submit">Log in</button>
+    </form>
+    <div id="create-response"></div>
+</div>
+
+
 
 </body>
 </html>

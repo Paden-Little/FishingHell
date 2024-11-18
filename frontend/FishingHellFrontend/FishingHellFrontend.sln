@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingHellFrontend", "FishingHellFrontend\FishingHellFrontend.csproj", "{35A2C3D7-D72E-4BC2-97E2-8B34B675111E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingHellFrontend.Desktop", "FishingHellFrontend.Desktop\FishingHellFrontend.Desktop.csproj", "{5D043E84-CEC9-45D4-8EAB-153BFD5DD154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingHellFrontend.Browser", "FishingHellFrontend.Browser\FishingHellFrontend.Browser.csproj", "{31DD574D-19D4-42E1-B503-985739E194F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35A2C3D7-D72E-4BC2-97E2-8B34B675111E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A2C3D7-D72E-4BC2-97E2-8B34B675111E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A2C3D7-D72E-4BC2-97E2-8B34B675111E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A2C3D7-D72E-4BC2-97E2-8B34B675111E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D043E84-CEC9-45D4-8EAB-153BFD5DD154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D043E84-CEC9-45D4-8EAB-153BFD5DD154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D043E84-CEC9-45D4-8EAB-153BFD5DD154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D043E84-CEC9-45D4-8EAB-153BFD5DD154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DD574D-19D4-42E1-B503-985739E194F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DD574D-19D4-42E1-B503-985739E194F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DD574D-19D4-42E1-B503-985739E194F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DD574D-19D4-42E1-B503-985739E194F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

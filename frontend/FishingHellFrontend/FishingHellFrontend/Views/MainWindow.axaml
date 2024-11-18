@@ -1,0 +1,37 @@
+<Window x:Class="FishingHellFrontend.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Fishing Hell" Width="800" Height="450">
+    
+    <Grid>
+        <!-- Define the main layout grid structure -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />   <!-- Row for Top Buttons -->
+            <RowDefinition Height="*" />      <!-- Row for centered ContentControl area -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Top Buttons: Log Out, Shop, Market, Collection -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button Content="Fish" Width="120" Height="60" Margin="5" HorizontalAlignment="Stretch" Click="OnFishClicked"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button Content="Shop" Width="120" Height="60" Margin="5" HorizontalAlignment="Stretch" Click="OnShopClicked"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button Content="Market" Width="120" Height="60" Margin="5" HorizontalAlignment="Stretch" Click="OnMarketClicked"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button Content="Collection" Width="120" Height="60" Margin="5" HorizontalAlignment="Stretch" Click="OnCollectionClicked"/>
+        </StackPanel>
+
+        <!-- Centered ContentControl for dynamic views -->
+        <ContentControl Grid.Column="0" x:Name="MainContent" Grid.Row="1" Grid.ColumnSpan="4"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>

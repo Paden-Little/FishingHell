@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FishingHellFrontend.Views.LoginView">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Login Section -->
+        <StackPanel Grid.Column="0" Spacing="10">
+            <TextBlock Text="Login" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Username:" />
+            <TextBox Width="200" Name="LoginUsernameTextBox" Watermark="Enter username" />
+            <TextBlock Text="Password:" />
+            <TextBox Width="200" Name="LoginPasswordBox" Watermark="Enter password" />
+            <Button Content="Login" Width="200" Name="LoginButton" HorizontalAlignment="Center" 
+                    Margin="0,20,0,0" Click="LoginButton_Click"/>
+            <!-- Error TextBox for Login -->
+            <TextBlock Width="200" Name="LoginErrorTextBox"
+                     Background="LightGray" Foreground="Red" TextWrapping="Wrap" 
+                     HorizontalAlignment="Center" Margin="0,10,0,0" />
+        </StackPanel>
+
+        <!-- Create Account Section -->
+        <StackPanel Grid.Column="1" Spacing="10">
+            <TextBlock Text="Create Account" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Username:" />
+            <TextBox Width="200" Name="CreateUsernameTextBox" Watermark="Enter username" />
+            <TextBlock Text="Password:" />
+            <TextBox Width="200" Name="CreatePasswordBox" Watermark="Enter password" />
+            <Button Content="Create Account" Width="200" Name="CreateAccountButton" HorizontalAlignment="Center" 
+                    Margin="0,20,0,0" Click="CreateAccountButton_Click"/>
+            <!-- Error TextBox for Create Account -->
+            <TextBlock Width="200" Name="CreateErrorTextBox"
+                     Background="LightGray" Foreground="Red" TextWrapping="Wrap" 
+                     HorizontalAlignment="Center" Margin="0,10,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

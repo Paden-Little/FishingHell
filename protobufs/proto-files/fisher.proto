@@ -1,0 +1,20 @@
+syntax = "proto3";
+package protobufs;
+option go_package = './protobufs';
+
+message StartFish {
+  string userID = 1;
+  string pool = 2;
+  int32 poleID = 3;
+  int32 baitID = 4;
+}
+
+message Fish{
+  int32 id = 1;
+  string name = 2;
+  string taxonomy = 3;
+  string pool = 4;
+  float weight = 5;
+  string timeCaught = 6;
+  int32 baitUsed = 7;
+}

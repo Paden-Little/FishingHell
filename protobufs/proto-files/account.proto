@@ -1,0 +1,38 @@
+syntax = "proto3";
+package protobufs;
+option go_package = './protobufs';
+
+message Pole{
+  int32 id = 1;
+  string name = 2;
+  int32 ticks = 3;
+  float price = 4;
+}
+
+message Bait {
+  int32 id = 1;
+  string name = 2;
+  float value = 3;
+  int32 uses = 4;
+  int32 owned = 5;
+}
+
+message FishCaught {
+  string id = 1;
+  string name = 2;
+  float weight = 3;
+  string whenCaught = 4; // Use string for timestamps to simplify
+  string fromPool = 5;
+  bool frozen = 6;
+}
+
+message Account {
+  string id = 1;
+  float cash = 2;
+  string username = 3;
+  string email = 4;
+  string password = 5;
+  repeated Pole poles = 6;
+  repeated Bait baits = 7;
+  repeated FishCaught fish = 8;
+}

@@ -15,5 +15,10 @@ func main() {
 	http.HandleFunc("/helloTrading", helloworld2trading)
 	http.HandleFunc("/helloUserTesting", helloworld2userTesting)
 
+	http.HandleFunc("/fish", fish)
+
+	http.HandleFunc("/login", login)
+	http.HandleFunc("/createAccount", createAccount)
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
